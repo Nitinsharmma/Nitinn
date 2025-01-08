@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Cursor Effect</title>
+    
+</head>
+<style>
+    body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ff00b3;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 242, 0.5);
+    position: relative;
+}
+
+body {
+    cursor: none; /* Hide the default cursor */
+}
+
+.neon-cursor {
+    position: absolute;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    background-color: #ff00b3; /* Neon color */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff00dd, 0 0 20px #ff00aa, 0 0 30px #ff00d4;
+    pointer-events: none; /* Prevent interference with mouse events */
+    transition: transform 0.1s ease;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Hover over this area!</h1>
+        <p>Move your mouse around to see the neon cursor effect.</p>
+    </div>
+</body>
+<script>
+    document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.neon-cursor');
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+});
+
+// Create the neon cursor element
+const neonCursor = document.createElement('div');
+neonCursor.classList.add('neon-cursor');
+document.body.appendChild(neonCursor);
+</script>
+</html>
